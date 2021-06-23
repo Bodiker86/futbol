@@ -9,6 +9,9 @@
     
 </head>
 <body>
+    <?php
+        $db = new mysqli('localhost', 'root', '', 'egzamin futbol');
+    ?>
     <header id="baner">
         <h2>Światowe rozgrywki piłkarskie</h2>
         <img src="obraz1.jpg" alt="boisko">
@@ -16,6 +19,12 @@
     
    <section id="mecze">
        <div id="mecz">skrypt1</div>
+       <?php
+       $query = $db->prepare("SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG'");
+       $query->execute();
+       $result = $query->get_result();
+       var_dump($db->error);
+       ?>
    </section>
         <main>
            <h2>Reprezentacja Polski</h2>
@@ -34,6 +43,8 @@
             <img src="zad1.png" alt="piłkarz">
             <p>Autor: 86301219619</p>
         </div>
-   
+   <?php
+    $db->close();
+   ?>
 </body>
 </html>
