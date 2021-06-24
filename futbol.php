@@ -18,12 +18,23 @@
     </header>
     
    <section id="mecze">
-       <div id="mecz">skrypt1</div>
        <?php
        $query = $db->prepare("SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG'");
+       
        $query->execute();
        $result = $query->get_result();
-       var_dump($db->error);
+       while ($row = $result->fetch_assoc()) {
+           echo " <div id='mecz'>";
+           $z1 =$row['zespol1']; 
+           $z2 =$row['zespol2'];
+           $w = $row['wynik'];
+           $data = $row['data_rozgrywki'];
+           echo "<h3>$z1 - $z2 </h3>";
+           echo "<h4>$w</h4>";
+           echo "<p>w dniu: $data</p>";
+           echo "</div>";
+       }
+      
        ?>
    </section>
         <main>

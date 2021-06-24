@@ -20,7 +20,13 @@ div#mecz {
     margin: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    float: left;
 }
+
+main {
+    clear: both;
+}
+
 div#mecz:hover {
     border-color: white;
 }
@@ -28,12 +34,14 @@ main {
     background-color: whitesmoke;
     height: 50px;
 }
+
 div#lewy {
     background-color: whitesmoke;
     width: 70%;
     height: 230px;
     float: left;
 }
+
 div#prawy {
     background-color: whitesmoke;
     width: 30%;
